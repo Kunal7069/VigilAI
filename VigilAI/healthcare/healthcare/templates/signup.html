@@ -1,0 +1,27 @@
+<html>
+  <head>
+   <title>Bootstrap demo</title>
+  </head>
+  <body>
+    <div class="container">
+       
+        <form method="post" action="{% url 'register' %}">
+          {% csrf_token %}
+          <div>
+        <label for='name'><b>NAME: </b></label>
+        <input type="text" placeholder="Enter Your First Name" name='name' required></input>
+       </div>
+       <div>
+        <label for='token'><b>TOKEN: </b></label>
+        <input type="text" placeholder="Enter Your token" name='token' required></input>
+       </div>
+       <button type="submit"><b>SIGNUP</b></button>
+      </form>
+        
+        
+       
+        <br>
+        <b>Already have an account</b><a href="login/">LOGIN</a>
+        </div>
+  </body>
+</html>

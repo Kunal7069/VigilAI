@@ -1,0 +1,126 @@
+<html>
+<head>
+    <title>About Us Sectionn</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+          * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Poppins', sans-serif;  
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(https://st2.depositphotos.com/4329009/8269/v/450/depositphotos_82696990-stock-illustration-abstract-creative-concept-vector-background.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center ;
+    z-index: 99;
+}
+.logo{
+    font-size: 2em ;
+    color: #fff;
+    user-select: none;
+}
+.navigation a{
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+.navigation a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+.navigation a:hover::after{
+    transform-origin: left;
+transform: scaleX(1);
+}
+.navigation .btnlogin-popup{
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+.navigation .btnlogin-popup:hover {
+    background: #fff;
+    color: #162938;
+}
+.content h1{
+    padding-top: -35px;
+    padding-left: 35px ;
+    padding-right: 650px;
+    padding-bottom: 10px;
+}
+.content p{
+    padding-left: 35px ;
+    padding-right: 650px;
+    padding-top: 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+    </style>
+     <meta charset="utf-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewpoint" content="width=device-width,initial-scale=1.0">
+     <title>
+         mainwebsite
+     </title>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<Body>
+    <header>
+        <h2 class="logo">VigilAI<ion-icon name="eye"></ion-icon></h2>
+    <nav class="navigation">
+     <a href="/open">Home</a>
+     <a href="/about">About</a>
+    </nav>
+    </header>
+    <div class="content">
+        <h1>About us</h1>
+        <p>At VigilAI, our mission is to enhance public safety and security through the power of artificial intelligence.
+             We are committed to providing an efficient and effective solution for analyzing CCTV footage, enabling the 
+             timely detection and prevention of criminal activities. By equipping our users with actionable insights, 
+             we strive to make communities safer and contribute to the global effort in combating crime</p>          
+    </div>
+</section>
+</Body>
+</html>
+
+
+{% comment %} <a href="op/en/">Home</a>
+     <a href="/about/">About</a> {% endcomment %}

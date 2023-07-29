@@ -1,0 +1,290 @@
+
+ <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+  <style>
+    @import url('');
+    *{
+      margin: 0;
+      padding:0;
+      box-sizing: border-box;
+      font-family:'Poppins', sans-serif;
+    }
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(45deg , #00bcd4, #ffeb3b);
+    }
+    header{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center ;
+      z-index: 99;
+  }
+  .logo{
+      font-size: 2em ;
+      color: #fff;
+      user-select: none;
+  }
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 1,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 48
+    }
+  .navigation a{
+      position: relative;
+      font-size: 1.1em;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      margin-left: 40px;
+  }
+  .navigation a::after{
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      border-radius: 5px;
+      transform-origin: right;
+      transform: scaleX(0);
+      transition: transform .5s;
+  }
+  .navigation a:hover::after{
+      transform-origin: left;
+  transform: scaleX(1);
+  }
+  .navigation .btnlogin-popup{
+      width: 130px;
+      height: 50px;
+      background: transparent;
+      border: 2px solid #fff;
+      outline: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.1em;
+      color: #fff;
+      font-weight: 500;
+      margin-left: 40px;
+      transition: .5s;
+  }
+  .navigation .btnlogin-popup:hover {
+      background: #fff;
+      color: #162938;
+  }
+    .container{
+     position: relative;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-wrap: wrap;
+     gap: 100px 50px;
+     padding: 20px 16px;
+    }
+    .container .card{
+      position: relative;
+      display: flex-start;
+      justify-content: center;
+      align-items: flex-start;
+      width: 295px;
+      height: 300px;
+      background: #e8c5d0;;
+      border-radius: 20px;
+      box-shadow: 10 25px 80px rgba(0,0,0,0.15);
+      transition: 0.5s;
+    }
+    .container .card:hover{
+      height: 400px;
+     
+    }
+    .container .card .imgBx{
+      position: absolute;
+      top: 20px;
+      left: 25px;
+      width:245px;
+      height: 220px;
+      background: #FBFFDC;
+      border-radius: 12px;
+      transition: 0.5s;
+    }
+    .imgBx{
+      background-size: cover;
+    }
+    .container .card:hover .imgBx{
+      top: -100px;
+      scale: 0.75;
+      box-shadow: 0 13px 45px rgba(0,0,0,0.2);
+    }
+    .video{
+      position: absolute;
+      top: 20px;
+      left: 25px;
+      width:300px;
+      height: 220px;
+      background: #333;
+      border-radius: 12px;
+      transition: 0.5s;
+    }
+    .container .card .content{
+      position: absolute;
+      top:240px;
+      width:100%;
+      padding: 0 30px;
+      height: 50px;
+      overflow: hidden;
+      text-align:center;
+      transition: 0.5s;
+    }
+    .container .card:hover .content{
+      height:250px;
+      top:150px;
+    }
+    table{
+      width: 100px;
+      margin-top: 30px;
+      margin: auto;
+      padding-top: 75%;
+  }
+  table,td,th{
+      border: 4px solid black;
+      border-collapse: collapse;
+      font-size: 15px;
+  }
+  td{
+      padding: 5px;
+  }
+  {% comment %} header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center ;
+    z-index: 99;
+}
+.logo{
+    font-size: 2em ;
+    color: #fff;
+    user-select: none;
+}
+.navigation a{
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+.navigation a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+.navigation a:hover::after{
+    transform-origin: left;
+transform: scaleX(1);
+}
+.navigation .btnlogin-popup{
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+.navigation .btnlogin-popup:hover {
+    background: #fff;
+    color: #162938;
+} {% endcomment %}
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2 class="logo">VigilAI<span class="material-symbols-outlined">
+        visibility
+        </span></h2>
+  <nav class="navigation">
+   <a href="/">Login</a>
+   <a href="/about/">About</a>
+   <a href="/analysis/">Analysis</a>
+  </nav>
+  </header>
+    {% for x in video %}
+    <div class="container">
+      <div class="card" style="--clr:#009688">
+       {% comment %} <div class="imgBx"> {% endcomment %}
+        <video class="imgBx"  src="{{x.video.url}}" ></video>
+       {% comment %} </div> {% endcomment %}
+       <div class="content">
+        <h3> <b>{{x.date}}</b> </h3>
+        <br>
+        <table>
+          {% comment %} <tr>
+            <th >DATE</th>
+            <td>{{x.date}}</td>
+        </tr> {% endcomment %}
+         <tr>
+           <th>CRIME TYPE</th>
+           <td>{{x.caption}}</td>
+       </tr>
+         <tr>
+             <th>LOCATION</th>
+             <td>{{x.location}}</td>
+        </tr>
+        <tr>
+          <th>DESCRIPTION</th>
+          <td>{{x.description}}</td>
+     </tr>
+       </table>
+       <br> 
+      </div>
+      </div>
+    </div>
+ 
+ 
+{% endfor %}
+ 
+    {% comment %} {% for x in video %}
+ <h5>{{x.description}}</h5>
+ <video controls src="{{x.video.url}}" ></video>
+ 
+{% endfor %} {% endcomment %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+</body>
+</html>
+

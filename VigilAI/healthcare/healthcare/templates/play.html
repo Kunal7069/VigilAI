@@ -1,0 +1,408 @@
+{% comment %} <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  </head>
+  <body>
+    <a href="/video/">HOME PAGE</a>
+   <a href="/play2/">DESCRIPTION PAGE</a>
+   <form method="post" action="{% url 'filter1' %}">
+    {% csrf_token %}
+    <div id="input-wrapper">
+          <div>
+            <label for='location'><b>LOCATION: </b></label>
+              <input type="text" name="location" placeholder="Default" required></input>
+              </div>
+              <div>
+                <label for='date'><b>DATE: </b></label>
+                  <input class="input-box" type="text" name="date" placeholder="Default" required></input>
+              </div>
+            </div>
+          <button type="submit"><b>APPLY FILTER</b></button>
+         
+</form>
+    {% for x in video %}
+ <h5>{{x.caption}}</h5>
+ <video controls src="{{x.video.url}}" ></video>
+ <br>
+ <a href="verify/?location={{x.location}}"><b>YES</b></a>
+ <a href="unverify/?location={{x.location}}"><b>NO</b></a>
+{% endfor %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+</body>
+</html>
+  {% endcomment %}
+
+
+
+  <!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Bootstrap demo</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+      <style>
+       
+
+        * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: 'Poppins', sans-serif;  
+  }
+  body{
+    display: flex;
+      min-height: 50vh;
+      background: url(https://st2.depositphotos.com/4329009/8269/v/450/depositphotos_82696990-stock-illustration-abstract-creative-concept-vector-background.jpg) no-repeat;
+      background-size: cover;
+      background-position: center;
+  }
+  : :-webkit-scrollbar{
+    display:none;
+  }
+  header{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 90%;
+      padding: 20px 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center ;
+      z-index: 1;
+  }
+  .logo{
+      font-size: 2em ;
+      color: #fff;
+      user-select: none;
+  }
+  .material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+  }
+  
+  .navigation a{
+      position: relative;
+      font-size: 1.1em;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      margin-left: 40px;
+  }
+  .navigation a::after{
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 3px;
+      background: #fff;
+      border-radius: 5px;
+      transform-origin: right;
+      transform: scaleX(0);
+      transition: transform .5s;
+  }
+  .navigation a:hover::after{
+      transform-origin: left;
+  transform: scaleX(1);
+  }
+  .navigation{
+    display: flex;
+    width: 200px;
+      height: 50px;
+      background: transparent;
+      outline: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.1em;
+      color: #fff;
+      font-weight: 500;
+      margin-left: 20px;
+      transition: .5s;
+  }
+          table{
+            position:relative;
+              width: 400px;
+              margin-top: 30px;
+              margin: auto;
+              padding-top: 75%;
+          }
+          table,td,th{
+              border: 4px solid black;
+              border-collapse: collapse;
+              font-size: 22px;
+          }
+          td{
+              padding: 10px;
+          }
+          .heading{
+              text-align: center; 
+              padding-top: 50px;
+               padding-left: auto; 
+               padding-right: auto;
+          }
+          .slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin-top: 50px;
+  }
+  .Containers {
+    display: none;
+  }
+  .object-fit-contain{
+    height: 400px;
+    width: 700px;
+    align-items: left;
+      padding-left: 5%;
+        padding-top: 25px;
+  }
+  .Info {
+    color: #e3e3e3;
+    font-size: 16px;
+    padding: 15px 14px 10px 14px;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  .Back,{
+    cursor: pointer;
+    position: relative;
+    top: 48%;
+    width: auto;
+    margin-top: 150px;
+    padding-right: 75%;
+    color: grey;
+    font-weight: bold;
+    font-size: 19px;
+    transition: 0.4s ease;
+    border-radius: 0 5px 5px 0;
+    user-select: none;
+  }
+  .forward {
+    cursor: pointer;
+    position: relative;
+    top: 48%;
+    width: auto;
+    margin-top: 0px;
+    padding-left: 75%;
+    color: grey;
+    font-weight: bold;
+    font-size: 19px;
+    transition: 0.4s ease;
+    border-radius: 0 5px 5px 0;
+    user-select: none;
+  }
+  .forward {
+    right: 0;
+    border-radius: 4px 0 0 4px;
+  }
+  .Back:hover, .forward:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  .dots {
+    align-items: center;
+    cursor: pointer;
+    height: 16px;
+    width: 16px;
+    margin: 0 3px;
+    background-color: #acc;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.5s ease;
+    
+  }
+  .enable, .dots:hover {
+    background-color: #717161;
+  }
+  .fade {
+    -webkit-animation-name: opacity;
+    -webkit-animation-duration: 6000s;
+    animation-name: fade;
+    animation-duration: 6000s;
+  }
+  @-webkit-keyframes fade {
+    from {opacity: 4}
+    to {opacity: 10}
+  }
+  
+  @keyframes fade {
+    from {opacity: 1}
+    to {opacity: 5}
+  }
+  .btn-tick{
+    padding-left: auto;
+    padding-right: auto;
+    background-color: lightblue;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 69px;
+    outline: none;
+    cursor: pointer;
+  }
+  .btn-tick:hover{
+    background-color: rgb(55, 175, 215);
+    color: white;
+  }
+  .btn-cross{
+    padding-left: auto;
+    padding-right: auto;
+    background-color: lightcoral;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 69px;
+    outline: none;
+    cursor: pointer;
+  }
+  .btn-cross:hover{
+    background-color: rgb(133, 38, 38);
+    color: white;
+  }
+      </style>  
+       <meta charset="utf-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewpoint" content="width=device-width,initial-scale=1.0">
+       <title>
+           mainwebsite
+       </title>
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+   </head>
+  </head>
+    <body>
+      <header>
+        <h2 class="logo">VigilAI<span class="material-symbols-outlined">
+          visibility</span></h2>
+          
+    <nav class="navigation">
+      
+      <a href="/">LogOut</a>
+      <a href="/video">Home</a>
+      <a href="/play2/?count={{count}}">Description</a>
+     
+    </nav>
+   
+
+
+  </header>
+ 
+  
+  <main>
+      {% for x in video %}
+   <div class="slideshow-container fade">
+      <div class="Containers">
+   <video controls src="{{x.video.url}}" class="object-fit-contain"></video>
+   <div style="align-items: center">
+    <a class="Back" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="forward" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+   <form method="post" action="/update/?time={{x.time}}&count={{count}}">
+    {% csrf_token %}
+   <div>
+    <label for='crime'><b>UPDATE THE CRIME TYPE: </b></label>
+      <input type="text" name="crime" placeholder="UPDATE THE CRIME TYPE" required></input>
+      {% comment %} <a href="update/?location={{x.location}}"><b>UPDATE</b></a> {% endcomment %}
+      </div>
+      {% comment %} <a href="update/?location={{x.location}}"><b>UPDATE</a></button> {% endcomment %}
+        <button type="submit" class="btn">UPDATE</button>
+    </form>
+      <br>
+   <table>
+    <tr>
+      <th>CRIME TYPE</th>
+      <td>{{x.caption}}</td>
+  </tr>
+  <tr>
+    <th >DATE</th>
+    <td>{{x.date}}</td>
+  </tr>
+    <tr>
+        <th >TIME</th>
+        <td>{{x.time}}</td>
+    </tr>
+    <tr>
+        <th>LOCATION</th>
+        <td>{{x.location}}({{x.coordinates}})</td>
+    </tr>  
+  </table>
+  <br>
+  <div style="text-align:center">
+   <a href="/verify/?time={{x.time}}&count={{count}}"><b><span class="btn-tick">&#x2713</span></b></a>
+   <a href="/unverify/?time={{x.time}}&count={{count}}"><b><span class="btn-cross">&times;</span></b></a>
+  </div>
+  </div>
+  <br>
+   {% endfor %}
+ 
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+  
+  
+  </main>
+  <div style="padding-top:150px; padding-left:200px;">
+    <h2 style="padding-bottom:5px"><b>Recent case</b></h2>
+    <ul class="menu">
+      {% for x in catch %}
+      <li><a href="{% url 'find' %}?time={{x.time}}&count={{count}}"><b><span class="btn-tick">{{x.location}} {{x.date}}</span></b></a><br></li>
+      <br>
+      {% endfor %}
+    
+      {% comment %} <li>farmer</li>
+      <li>sketch</li>
+      <li>invision studio</li>
+      <li >figma</li>
+      <li>adobe xd</li> {% endcomment %}
+   </ul>
+ </div>
+  <script>
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+  const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+   
+    var slidePosition = 1;
+  SlideShow(slidePosition);
+  
+  // forward/Back controls
+  function plusSlides(n) {
+    SlideShow(slidePosition += n);
+  }
+  
+  //  images controls
+  function currentSlide(n) {
+    SlideShow(slidePosition = n);
+  }
+  
+  function SlideShow(n) {
+    var i;
+    var slides = document.getElementsByClassName("Containers");
+    var circles = document.getElementsByClassName("dots");
+    if (n > slides.length) {slidePosition = 1}
+    if (n < 1) {slidePosition = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < circles.length; i++) {
+        circles[i].className = circles[i].className.replace(" enable", "");
+    }
+    slides[slidePosition-1].style.display = "block";
+    circles[slidePosition-1].className += " enable";
+  }
+  </script>
+  </body>
+  </html>
